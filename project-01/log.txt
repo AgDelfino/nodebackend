@@ -5,3 +5,5 @@ Date: 1767027791037 Method: GET Path: /users IP::1
 Date: 1767027801803 Method: GET Path: /api/users IP::1
 Date: 1767027886500 Method: GET Path: /api/users IP::1
 Date: 1767027931223 Method: GET Path: /api/users IP::1
+Date: 1767031266388 Method: POST Path: /api/users IP::1
+Date: 1767031287443 Method: POST Path: /api/users IP::1

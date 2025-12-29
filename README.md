@@ -178,6 +178,11 @@ Headers provide metadata about the request/response:
 - Content-Type
 - Custom headers (often prefixed with `X-`)
 
+HTTP headers are an important part of API requests and responses as they
+represent metadata associated with them. Headers carry information about the
+request and response bodies.
+> Metadata is data about the data.
+
 ### Status Codes
 
 | Status Code Range | Description             |
@@ -188,9 +193,10 @@ Headers provide metadata about the request/response:
 | `400-499`         | Client error responses  |
 | `500-599`         | Server error responses  |
 
-HTTP headers are an important part of API requests and responses as they
-represent metadata associated with them. Headers carry information about the
-request and response bodies.
-> Metadata is data about the data.
+This status code is defined `RFC 91110`
+
+`You can access this link to more status information`
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status
+
 
 
