@@ -1,185 +1,173 @@
 # Node.js Documentation
 
 ## Table of Contents
-- [Introduction](#introduction)
-- [Architecture](#architecture)
-- [Web Server Creation](#web-server-creation)
-- [URL Structure](#url-structure)
-- [HTTP Methods](#http-methods)
-- [Express Framework](#express-framework)
-- [Version Control](#version-control)
-- [REST API](#rest-api)
-- [Middlewares](#middlewares)
-- [HTTP Headers & Status Codes](#http-headers--status-codes)
+
+1. [Introduction](#introduction)
+2. [Architecture](#architecture)
+3. [Web Server Creation](#web-server-creation)
+4. [URL Structure](#url-structure)
+5. [HTTP Methods](#http-methods)
+6. [Express Framework](#express-framework)
+7. [Version Control](#version-control)
+8. [REST API](#rest-api)
+9. [Middlewares](#middlewares)
+10. [HTTP Headers & Status Codes](#http-headers--status-codes)
 
 ## Introduction
 
-Node.js is an engine to execute JavaScript code outside the browser.
+Node.js is a runtime that executes JavaScript code outside the browser.
 
 ### JavaScript Engine
-The most popular JavaScript engine is the V8 engine:
-- Used by Google Chrome browser
-- Created by Ryan Dahl
-- Written in C++
-- Open source
+The most popular JavaScript engine is Google’s V8 engine:
 
-Together converge into Node JS
+* Used by the Google Chrome browser
+* Created by Google
+* Written in C++
+* Open source
 
-You can run JS outside of the browser
-Javascript can tal to native machine because of C++
-You can create webservers in Javascript Language
+Together these components converge into **Node.js**:
 
-Node Js is a runtime environment for Javascript
+- You can run JavaScript outside the browser
+- JavaScript can talk to the native machine via C++ bindings
+- You can create web servers using JavaScript
 
-We create ours js files with the logic they will execute
-To reuse those files we need to module export them.
-And we need to use the require function to use them in the
-rest of the files.
+Note: **Node.js** was created by Ryan Dahl and is a runtime environment for JavaScript.
 
-To handle files we use 'fs' for File System.
+We create `.js` files with executable logic.
+To reuse those files, we need to:
+
+- Use `module.exports` to export them
+- Use the `require` function (or `import` in ESM) to import them in other files
+
+To handle files, we use the `fs` (File System) module.
 
 ## Architecture
 
-In the event loop will get blocking operations and non-blocking operations
-blocking operations I need a thread (worker)
-assign a worker and make him work, this ones goes to the
-thread pool then return the result.
+In the event loop we have blocking and non‑blocking operations.
+Blocking operations require a thread (worker).
+Node.js assigns such work to the lib thread pool and returns the result asynchronously.
 
-Basically all sync calls are handled as blocking calls.
-Async ones non-blocking
+Basically, synchronous calls are blocking; asynchronous calls are non‑blocking.
 
--- CREATING A WEB SERVER WITH NODE JS --
+## Web Server Creation
 
-To create a web server we use the package http
-the two main things to do is create a server from this
-package using http.createServer()
+To create a web server, we use the built‑in `http` package.
+First, create a server using `http.createServer()`.
 
-This function receives callback fn with the params req
-and res. We use this params to handle the connect messages,
-create a log.txt document to save the logs, etc.
+This function receives a callback with the parameters `req` and `res`.
+Use these to handle incoming requests and write responses (and optionally to log requests).
 
-The next thing to do is assign a port to our server to listen
-We use the server const to server.listen()
-This fn receives the port (8000 for example) and also a
-callback fn to handle the connection.
+Next, assign a port for the server to listen on with `server.listen(port, callback)`
+(e.g., `8000`). The callback runs once the server is listening.
 
-/// URL with Node -- Uniform Resource Locator ///
+## URL Structure
 
-https://www.google.com/
+Example: `https://www.google.com/`
 
-'https://' it's the protocol. (the s is for secure)
-'www.google.com 'it's the domain - user friendly name of
-IP Address of my server.
-and finally the '/' goes for the path.
-We also have nested paths such like '/contact/1'
-Then we have the query params '/about?userId=1'
+- `https://` is the protocol (`s` for secure)
+- `www.google.com` is the domain — a user‑friendly name for the server’s IP address
+- `/` is the path
+- Nested paths look like `/contact/1`
+- Query parameters look like `/about?userId=1`
 
-** The + in url means a space **
+Note: `+` in URLs can represent a space in application/x-www-form-urlencoded data.
 
-//// HTTP METHODS ///
+## HTTP Methods
 
-GET - POST - PUT - PATCH - DELETE
+- **GET**: Retrieve data from the server
+- **POST**: Create a resource (send data to the server)
+- **PUT**: Replace a resource entirely (idempotent)
+- **PATCH**: Partially update a resource
+- **DELETE**: Remove a resource
+  The browser sends requests with these methods; query parameters may accompany any method.
 
-GET = Get some data from the server.
-The browser send a request trough the query params in the URL with the specifications
+POST: send data to create a resource (e.g., create a new user from a form submission).
 
-POST = In this case we send data to our server, and we expect the server do
-things with this data. Maybe create a new user in the Data Base trough a form.
+PUT: replace a resource in full at a given URL.
 
-PUT = Is used when we need to add new data to something.
+PATCH: apply a partial update to an existing resource.
 
-PATCH = Is used when we need to replace some existing data.
+DELETE: remove data.
 
-DELETE = Basically when you need to delete data.
+## Express Framework
 
-/// Using Express With Node ///
+First install Express: `npm i express`
+Then initialize it: `const app = express()`
+Now you can use `app` to access Express APIs.
 
-First of all we need to install express (npm i express)
-Then to start using it, we need to initialize it with the app const as const app = express()
-Now we can use this app to access all the express methods
+Steps:
 
-So to resume this usage in steps:
+1. Require Express
+2. Create `const app = express()`
+3. Make your server listen on a port: `app.listen(port, callback)`
+4. Create routes with `app.METHOD(path, callback)`
 
-1.- Require Express
-2.- Create const app = express()
-3.- Make your server listen at any port app.listen(port, callback)
-4.- Start creating the routes with app.METHODS(path, CB)
+## Version Control
 
+Version numbers follow the format: `MAJOR.MINOR.PATCH` (e.g., `4.18.2`).
 
-// Versioning Applications //
+- **MAJOR**: Breaking changes
+- **MINOR**: Backwards‑compatible features
+- **PATCH**: Bug fixes
 
-We use this nomenclature to detail our version.
-Example: 4.18.2
+To install a specific version:
+`npm i <package>@<version>`
 
-1st part -> 4 --> Major Release/Changes (Beta Usage)
-This are core changes, so use the latest only it the
-application suggest it.
-2nd part -> 18 --> Recommended Update/Bug Fix (Secure) this restore the 3rd part counter.
-3rd part -> 2 --> This part means Minor Fixes (Optional)
+In `package.json` version ranges:
+- `^1.2.3` allows compatible MINOR and PATCH updates (e.g., `>=1.2.3 <2.0.0`).
+- `~1.2.3` allows PATCH updates (e.g., `>=1.2.3 <1.3.0`).
+- Exact `1.2.3` pins the version.
+- Comparators like `>`, `<`, `>=` specify ranges.
+- The tag `latest` installs the latest published version.
+If you need to lock to an exact version, remove range operators like `^` or `~`.
 
-1 - Minor
-2 - Recommended
-3 - Major
+## REST API
 
-To install an specific version you can use the:
-npm i 'npm-dependency'@'version'
+A REST (Representational State Transfer) API is an architectural style for designing networked applications. It follows these principles:
 
-When we found the "^" that means that it will install the latest stable version. So if you install an specific version you need to remove this character from the package.json because when you run the npm i it will install the lastest stable version.
+- Client‑Server separation
+- Stateless communication
+- Uniform interface
+- Resource‑based URLs
 
-So ^ this character --> LATEST STABLE VERSION, recommended by the app creator.
+SERVER CLIENT (browser)
 
-Then we have the ˜ character that will install only
-minor fixes approximation
+Browser → REQUEST → Server → RESPONSE → Browser
 
-And finally we have comparison characters < > to talk about higher and lower versions of the app.
-
-We can use also the "latest" specification if we want the latest, this brings the latest update.
-
-/// What is a REST API ///
-
-Restfull api:
-It's the representation of the type of api
-It has rules
-
-SERVER                CLIENT (browser)
-
-Browser -> REQUEST -> Server -> RESPONSE -> Browser
 
 Best practices:
-Server / Client Architecture
-Server separated from the client
+- Server / Client architecture
+- Server separated from the client
 
-Response: Text, Image, Html Docs, Json
+Response: Text, Image, HTML docs, JSON
 
 Example:
-GET Blogs -> Fetch DB -> Html/SSR (res)
-GET Blogs -> Fetch DB xml/json -> json (res) // Frontend decides how to handle the data.
+- GET /blogs → Fetch DB → HTML/SSR (res)
+- GET /blogs → Fetch DB (XML/JSON) → JSON (res) // Frontend decides how to handle the data.
 
-*Always respect all http methods*
-GET_POST_PUT_PATCH_DELETE
+Always respect HTTP methods: GET, POST, PUT, PATCH, DELETE.
 
-GET / users --> users data for read
-POST / user --> handle new user
-PATCH / user --> Update the user
+GET /users → read users'
+POST /users → create user
+PATCH /users/:id → update user
 
-There's a fact, you can modify and delete a user by using the POST method, but this isn't a good practice. Always use the correct METHODS
+Technically, you could modify or delete with POST, but it’s not a good practice. Always use the correct methods.
 
-With express we can send json responses by
-res.send('', res.json) // CSR (Client Side Rendering)
+With Express, we can send JSON responses using `res.json(data)` or `res.send(data)`.
 
---- We use postman for test urls ---
+Tip: Use Postman or similar tools to test endpoints.
 
-/// MIDDLEWARES ///
+## Middlewares
 
-A middleware is a pre-instance which is a function between the client and server. So it handles the request and responses.
+Middleware is a function that sits between the client and server to process requests and responses.
 
-We can use many middlewares as necessary to avoid bad request reach the server.
+We can use multiple middlewares as necessary to validate and transform requests.
 
-This middlewares are functions that have access to req, res objects and the next middleware. So we can chain middlewares.
+These functions have access to `req`, `res`, and the `next` function, allowing chaining.
 
-The middlewares goes in stack. So the order of them it's important in the code.
+Middlewares are executed in a stack; their order in code matters.
 
-The next function it's the connector of them, so the cycle finish when the next function isn't there.
+The `next` function connects middlewares; the cycle stops when no `next` is called and a response is sent.
 
 ## HTTP Headers & Status Codes
 
@@ -188,26 +176,21 @@ Headers provide metadata about the request/response:
 - Source IP address
 - Destination IP address
 - Content-Type
-- Custom headers (prefixed with 'X-')
+- Custom headers (often prefixed with `X-`)
 
 ### Status Codes
-| Range | Description |
-|-------|-------------|
-| 100-199 | Informational responses |
-| 200-299 | Successful responses |
-| 300-399 | Redirection messages |
-| 400-499 | Client error responses |
-| 500-599 | Server error responses |
 
-HTTP Headers are an important part of the API request and response as they
-represent the meta-data associated with the API request and response.
-Headers carry information for the request and response body.
-Meta-data it's data about the data.
+| Status Code Range | Description             |
+|-------------------|-------------------------|
+| `100-199`         | Informational responses |
+| `200-299`         | Successful responses    |
+| `300-399`         | Redirection messages    |
+| `400-499`         | Client error responses  |
+| `500-599`         | Server error responses  |
 
-Status Codes:
-100 - 199: Informational responses
-200 - 299: Successful responses
-300 - 399: Redirection messages
-400 - 499: Client error responses
-500 - 599: Server error responses
+HTTP headers are an important part of API requests and responses as they
+represent metadata associated with them. Headers carry information about the
+request and response bodies.
+> Metadata is data about the data.
+
 

@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0072defc-43a8-48bf-8d60-a7acd88026bf" name="Changes" comment="" />
+    <list default="true" id="0072defc-43a8-48bf-8d60-a7acd88026bf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +22,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -44,13 +50,30 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
+    "settings.editor.selected.configurable": "settings.qodana",
     "settings.editor.splitter.proportion": "0.3058104",
     "to.speed.mode.migration.done": "true",
     "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="QodanaHighlightedReportService">
+    <option name="localRunNotPublishedPersistedInfo">
+      <LocalReportPersistedInfo>
+        <option name="path" value="/private/var/folders/mh/3p75h7kx0nqckx2898s109y40000gn/T/qodana_output/qodana.sarif.json" />
+        <option name="reportGuid" value="3444706a-267c-439b-934a-fc08abbc803c" />
+        <option name="reportName" value="nodebackend/qodana/2025-12-29" />
+      </LocalReportPersistedInfo>
+    </option>
+  </component>
+  <component name="QodanaIsSelectedPersistenceService">
+    <option name="selectedOrLoading" value="true" />
+  </component>
+  <component name="QodanaReportsService">
+    <option name="descriptions">
+      <ReportDescription localRun="true" path="/private/var/folders/mh/3p75h7kx0nqckx2898s109y40000gn/T/qodana_output/qodana.sarif.json" reportGuid="3444706a-267c-439b-934a-fc08abbc803c" reportId="nodebackend/qodana/2025-12-29" />
+    </option>
+  </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/project-01" />
@@ -71,7 +94,7 @@
       <option name="presentableId" value="Default" />
       <updated>1766848807378</updated>
       <workItem from="1766848808381" duration="29123000" />
-      <workItem from="1767015789418" duration="12302000" />
+      <workItem from="1767015789418" duration="12898000" />
     </task>
     <servers />
   </component>
