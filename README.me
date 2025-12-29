@@ -1,0 +1,182 @@
+Node JS is a an engine to execute Javascript code out the
+browser.
+
+The most popular Javascript engine its V8 engine.
+Its used by Google Chrome browser, it was created by
+Ryan Dahl, it's a C++ code engine open source.
+
+Together converge into Node JS
+
+You can run JS outside of the browser
+Javascript can tal to native machine because of C++
+You can create webservers in Javascript Language
+
+Node Js is a runtime environment for Javascript
+
+We create ours js files with the logic they will execute
+To reuse those files we need to module export them.
+And we need to use the require function to use them in the
+rest of the files.
+
+To handle files we use 'fs' for File System.
+
+NODE JS -- Architecture
+
+ Client ---> Request ---> Node JS (server)
+
+Te request goes to the Event Queue and then the event loop
+process it in the right order of arrive.
+
+In the event loop will get blocking operations and non-blocking operations
+blocking operations I need a thread (worker)
+assign a worker and make him work, this ones goes to the
+thread pool then return the result.
+
+Basically all sync calls are handled as blocking calls.
+Async ones non-blocking
+
+-- CREATING A WEB SERVER WITH NODE JS --
+
+To create a web server we use the package http
+the two main things to do is create a server from this
+package using http.createServer()
+
+This function receives callback fn with the params req
+and res. We use this params to handle the connect messages,
+create a log.txt document to save the logs, etc.
+
+The next thing to do is assign a port to our server to listen
+We use the server const to server.listen()
+This fn receives the port (8000 for example) and also a
+callback fn to handle the connection.
+
+/// URL with Node -- Uniform Resource Locator ///
+
+https://www.google.com/
+
+'https://' it's the protocol. (the s is for secure)
+'www.google.com 'it's the domain - user friendly name of
+IP Address of my server.
+and finally the '/' goes for the path.
+We also have nested paths such like '/contact/1'
+Then we have the query params '/about?userId=1'
+
+** The + in url means a space **
+
+//// HTTP METHODS ///
+
+GET - POST - PUT - PATCH - DELETE
+
+GET = Get some data from the server.
+The browser send a request trough the query params in the URL with the specifications
+
+POST = In this case we send data to our server, and we expect the server do
+things with this data. Maybe create a new user in the Data Base trough a form.
+
+PUT = Is used when we need to add new data to something.
+
+PATCH = Is used when we need to replace some existing data.
+
+DELETE = Basically when you need to delete data.
+
+/// Using Express With Node ///
+
+First of all we need to install express (npm i express)
+Then to start using it, we need to initialize it with the app const as const app = express()
+Now we can use this app to access all the express methods
+
+So to resume this usage in steps:
+
+1.- Require Express
+2.- Create const app = express()
+3.- Make your server listen at any port app.listen(port, callback)
+4.- Start creating the routes with app.METHODS(path, CB)
+
+
+// Versioning Applications //
+
+We use this nomenclature to detail our version.
+Example: 4.18.2
+
+1st part -> 4 --> Major Release/Changes (Beta Usage)
+This are core changes, so use the latest only it the
+application suggest it.
+2nd part -> 18 --> Recommended Update/Bug Fix (Secure) this restore the 3rd part counter.
+3rd part -> 2 --> This part means Minor Fixes (Optional)
+
+1 - Minor
+2 - Recommended
+3 - Major
+
+To install an specific version you can use the:
+npm i 'npm-dependency'@'version'
+
+When we found the "^" that means that it will install the latest stable version. So if you install an specific version you need to remove this character from the package.json because when you run the npm i it will install the lastest stable version.
+
+So ^ this character --> LATEST STABLE VERSION, recommended by the app creator.
+
+Then we have the ˜ character that will install only
+minor fixes approximation
+
+And finally we have comparison characters < > to talk about higher and lower versions of the app.
+
+We can use also the "latest" specification if we want the latest, this brings the latest update.
+
+/// What is a REST API ///
+
+Restfull api:
+It's the representation of the type of api
+It has rules
+
+SERVER                CLIENT (browser)
+
+Browser -> REQUEST -> Server -> RESPONSE -> Browser
+
+Best practices:
+Server / Client Architecture
+Server separated from the client
+
+Response: Text, Image, Html Docs, Json
+
+Example:
+GET Blogs -> Fetch DB -> Html/SSR (res)
+GET Blogs -> Fetch DB xml/json -> json (res) // Frontend decides how to handle the data.
+
+*Always respect all http methods*
+GET_POST_PUT_PATCH_DELETE
+
+GET / users --> users data for read
+POST / user --> handle new user
+PATCH / user --> Update the user
+
+There's a fact, you can modify and delete a user by using the POST method, but this isn't a good practice. Always use the correct METHODS
+
+With express we can send json responses by
+res.send('', res.json) // CSR (Client Side Rendering)
+
+--- We use postman for test urls ---
+
+/// MIDDLEWARES ///
+
+A middleware is a pre-instance which is a function between the client and server. So it handles the request and responses.
+
+We can use many middlewares as necessary to avoid bad request reach the server.
+
+This middlewares are functions that have access to req, res objects and the next middleware. So we can chain middlewares.
+
+The middlewares goes in stack. So the order of them it's important in the code.
+
+The next function it's the connector of them, so the cycle finish when the next function isn't there.
+
+/// HTTP Headers & Status Codes ///
+
+Headers: Are basically the extra info of a request.
+for example:
+- from x IP
+- to  IP
+- content type: JSON
+
+HTTP Headers are an important part of the API request and response as they
+represent the meta-data associated with the API request and response.
+Headers carry information for the request and response body.
+Meta-data it's data about the data.

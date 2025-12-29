@@ -1,0 +1,15 @@
+{
+  "name": "project-01",
+  "version": "1.0.0",
+  "description": "API Restfull",
+  "license": "ISC",
+  "author": "Agustin Delfino",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
