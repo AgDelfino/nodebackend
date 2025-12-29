@@ -16,11 +16,16 @@ app.use((req, res, next) => {
 
 // REST API
 app.get('/api/users', (req, res) => {
+    res.setHeader('X-MyName', 'Agus Delfino') // Custom Header
+    // Good Practice: Always add X custom headers.
+    // The X it represents a custom header.
+    console.log(req.headers)
     return res.json(users)
 })
 
 app.route('/api/users/:id')
     .get((req, res) => {
+
         const id = Number(req.params.id)
         const user = users.find(user => user.id === id)
         if(!user){
@@ -65,9 +70,12 @@ app.route('/api/users/:id')
 
 app.post('/api/users', (req, res) => {
     const body = req.body;
+    if(!body || !body.first_name || !body.last_name || !body.email || !body.gender || !body.job_title ){
+        return res.status(400).json({error: 'All fields required'})
+    }
     users.push({...body, id: users.length + 1})
     fs.writeFile('./MOCK_DATA.json', JSON.stringify(users), (err, data) => {
-        return res.json({status: 'success', id: users.length})
+        return res.status(201).json({status: 'success', id: users.length})
     })
 })
 
