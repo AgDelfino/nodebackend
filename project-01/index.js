@@ -16,11 +16,16 @@ app.use((req, res, next) => {
 
 // REST API
 app.get('/api/users', (req, res) => {
+    res.setHeader('X-MyName', 'Agus Delfino') // Custom Header
+    // Good Practice: Always add X custom headers.
+    // The X it represents a custom header.
+    console.log(req.headers)
     return res.json(users)
 })
 
 app.route('/api/users/:id')
     .get((req, res) => {
+
         const id = Number(req.params.id)
         const user = users.find(user => user.id === id)
         if(!user){

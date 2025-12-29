@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0072defc-43a8-48bf-8d60-a7acd88026bf" name="Changes" comment="" />
+    <list default="true" id="0072defc-43a8-48bf-8d60-a7acd88026bf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.me" beforeDir="false" afterPath="$PROJECT_DIR$/README.me" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project-01/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/project-01/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project-01/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/project-01/log.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,7 +40,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "headers-&&-status-codes",
+    "git-widget-placeholder": "methodsandstatus",
     "javascript.nodejs.core.library.configured.version": "24.11.1",
     "javascript.nodejs.core.library.typings.version": "24.10.4",
     "junie.onboarding.icon.badge.shown": "true",
@@ -71,7 +76,7 @@
       <option name="presentableId" value="Default" />
       <updated>1766848807378</updated>
       <workItem from="1766848808381" duration="29123000" />
-      <workItem from="1767015789418" duration="10074000" />
+      <workItem from="1767015789418" duration="10985000" />
     </task>
     <servers />
   </component>
