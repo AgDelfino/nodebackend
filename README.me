@@ -1,9 +1,27 @@
-Node JS is a an engine to execute Javascript code out the
-browser.
+# Node.js Documentation
 
-The most popular Javascript engine its V8 engine.
-Its used by Google Chrome browser, it was created by
-Ryan Dahl, it's a C++ code engine open source.
+## Table of Contents
+- [Introduction](#introduction)
+- [Architecture](#architecture)
+- [Web Server Creation](#web-server-creation)
+- [URL Structure](#url-structure)
+- [HTTP Methods](#http-methods)
+- [Express Framework](#express-framework)
+- [Version Control](#version-control)
+- [REST API](#rest-api)
+- [Middlewares](#middlewares)
+- [HTTP Headers & Status Codes](#http-headers--status-codes)
+
+## Introduction
+
+Node.js is an engine to execute JavaScript code outside the browser.
+
+### JavaScript Engine
+The most popular JavaScript engine is the V8 engine:
+- Used by Google Chrome browser
+- Created by Ryan Dahl
+- Written in C++
+- Open source
 
 Together converge into Node JS
 
@@ -20,12 +38,7 @@ rest of the files.
 
 To handle files we use 'fs' for File System.
 
-NODE JS -- Architecture
-
- Client ---> Request ---> Node JS (server)
-
-Te request goes to the Event Queue and then the event loop
-process it in the right order of arrive.
+## Architecture
 
 In the event loop will get blocking operations and non-blocking operations
 blocking operations I need a thread (worker)
@@ -168,17 +181,33 @@ The middlewares goes in stack. So the order of them it's important in the code.
 
 The next function it's the connector of them, so the cycle finish when the next function isn't there.
 
-/// HTTP Headers & Status Codes ///
+## HTTP Headers & Status Codes
 
-Headers: Are basically the extra info of a request.
-for example:
-- from x IP
-- to  IP
-- content type: JSON
+### Headers
+Headers provide metadata about the request/response:
+- Source IP address
+- Destination IP address
+- Content-Type
+- Custom headers (prefixed with 'X-')
+
+### Status Codes
+| Range | Description |
+|-------|-------------|
+| 100-199 | Informational responses |
+| 200-299 | Successful responses |
+| 300-399 | Redirection messages |
+| 400-499 | Client error responses |
+| 500-599 | Server error responses |
 
 HTTP Headers are an important part of the API request and response as they
 represent the meta-data associated with the API request and response.
 Headers carry information for the request and response body.
 Meta-data it's data about the data.
 
+Status Codes:
+100 - 199: Informational responses
+200 - 299: Successful responses
+300 - 399: Redirection messages
+400 - 499: Client error responses
+500 - 599: Server error responses
 
