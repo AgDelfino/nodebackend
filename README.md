@@ -198,5 +198,31 @@ This status code is defined `RFC 91110`
 `You can access this link to more status information`
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status
 
+### MongoDB 
+
+- No-SQL Document-based Database
+- Strong support for Aggregation Pipes
+- Works with BSON format
+- Best for node Applications
+
+`Architecture`: 
+collection - users --> It use tables
+- Each document is a JSON object
+- Documents are stored in collections
+- Collections are stored in databases
+- Databases are stored in MongoDB instances
+
+
+Installation and setup 
+
+// PENDING /// 
+
+### Model View Controller
+
+- Model: Represents the data structure and business logic of the application.
+- View: Represents the user interface and presentation layer.
+- Controller: Handles the communication between the model and view, and manages the flow of data.
+
+This architecture promotes separation of concerns, making the codebase more modular and maintainable.
 
 
